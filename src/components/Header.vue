@@ -2,6 +2,7 @@
     <header>
         <nav class="links-container">
             <h1>Veloquio</h1>
+            <h1>Hola</h1>
             <router-link class="link" to="/">Inicio</router-link>
             <router-link class="link" to="/favorites">Favoritos</router-link>
         </nav>
