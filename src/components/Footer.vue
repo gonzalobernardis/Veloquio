@@ -1,12 +1,11 @@
 <template>
-    
     <footer>
         <div class="caja">
             <div>
                 <h1 class="titulo">Veloquio</h1>
-                <h2>Privacidad</h2>
-                <h2>Centro de ayuda</h2>
-                <h2>Terminos de uso</h2>
+                <h2><a href="#">Privacidad</a></h2>
+                <h2><a href="#">Centro de ayuda</a></h2>
+                <h2><a href="#">Terminos de uso</a></h2>
             </div>
             <div>
                 <h1 class="titulo">Contactos</h1>
@@ -39,6 +38,10 @@ export default {
     flex-direction: row;
     justify-content: space-around;
 }
+.caja h2 a {
+    text-decoration: none;
+    color: #ffffff;
+}
 footer{
     color: white;
     background: #301c41;
@@ -47,7 +50,7 @@ footer{
     border-radius: 1em;
 }
 .volver{
-    margin-top: 50p;
+    margin-top: 50px;
     text-align: center;
     font-size: 28px;
     color: white;

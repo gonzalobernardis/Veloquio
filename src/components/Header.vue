@@ -38,7 +38,7 @@ export default {
         color: #ffffff;
     }
     .link:hover {
-        text-decoration: underline #000000;
+        text-decoration: underline #ffffff;
         text-underline-offset: 0.5em;
     }
 
