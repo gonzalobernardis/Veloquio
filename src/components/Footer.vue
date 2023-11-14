@@ -33,8 +33,8 @@ export default {
 }
 footer{
     color: white;
-    background: rgb(37,34,34);
-    background: linear-gradient(90deg, rgba(37,34,34,1) 19%, rgba(37,34,34,1) 50%, rgba(37,34,34,1) 90%);
+    background: #301c41;
+    background: #301c41;
     margin-top: 1200px;
     border-radius: 1em;
 }

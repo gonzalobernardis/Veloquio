@@ -28,10 +28,10 @@ export default {
         display: flex;
         align-items: center;
         justify-content: space-around;
-        background-color: #19C37D;
+        background-color: #413b6b;
         color: #ffffff;
         height: 10vh;
-        border-radius: 1em;
+
     }
     .link {
         text-decoration: none;
