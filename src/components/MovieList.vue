@@ -1,36 +1,28 @@
 <template>
-    <div class="movielist">
-        <div v-for="movie in filteredMovies" :key="movie.id" class="moviecard">
-            <img :src="'https://image.tmdb.org/t/p/w200' + movie.poster_path" alt="Poster">
-            <h2>{{ movie.title }}</h2>
-            <p>{{ movie.overview }}</p>
-        </div>
+    <div class="movieList">
+        <MovieCard v-for="movie in filteredMovies" :key="movie.id" :movie="movie" />
     </div>
 </template>
 
 <style scoped>
-    .movielist {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-    .moviecard {
-        margin: 1em;
-        padding: 1em;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        max-width: 200px;
-        text-align: center;
-    }
+.movieList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
 </style>
 
 <script>
-    export default {
+import MovieCard from '@/components/MovieCard.vue';
+export default {
+    components: {
+        MovieCard,
+    },
     props: {
         filteredMovies: {
             type: Array,
             required: true,
         },
-    },
+    }
 };
 </script>
