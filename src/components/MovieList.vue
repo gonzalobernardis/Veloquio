@@ -1,29 +1,37 @@
 <template>
-    <div class="movieList">
-        <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie" />
-    </div>
-</template>
-
-<style scoped>
-.movieList {
+  <div class="movieList">
+    <router-link v-for="movie in movies" :key="movie.id" :to="{ name: 'movie-details', params: { id: movie.id } }">
+      <MovieCard :movie="movie" />
+    </router-link>
+  </div>
+  </template>
+  
+  <style scoped>
+  .movieList {
     display: flex;
     flex-wrap: wrap;
     gap: 5em;
     justify-content: space-between;
-}
-</style>
-
-<script>
-import MovieCard from '@/components/MovieCard.vue';
-export default {
+  }
+  </style>
+  
+  <script>
+  import MovieCard from '@/components/MovieCard.vue';
+  export default {
     components: {
-        MovieCard,
+      MovieCard,
     },
     props: {
-        movies: {
-            type: Array,
-            required: true,
-        },
-    }
-};
-</script>
+      movies: {
+        type: Array,
+        required: true,
+      },
+    },
+    methods: {
+      addToFavorites(movie) {
+        // Llama a la acción de Vuex para agregar a favoritos
+        this.$store.dispatch('addMovieToFavorites', movie);
+      },
+    },
+  };
+  </script>

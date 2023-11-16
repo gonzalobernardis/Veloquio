@@ -34,7 +34,7 @@
 export default {
   data() {
     return {
-      showSidebar: false,
+      showSidebar: true,
       searchTerm: '',
       selectedGenre: '',
       selectedAgeFilter: '',
@@ -63,17 +63,34 @@ export default {
 
 <style scoped>
 .sidebar-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #f0f0f0;
+  background: #1c0b2b; 
   padding: 1em;
-  width: 250px;
-  height: 100%;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
   z-index: 1000;
   display: flex;
-  flex-direction: column;
-  gap: 1em;
+  align-items: center; 
+  justify-content: space-between; 
+}
+
+.sidebar-menu button {
+  background: #363636; 
+  color: #ffffff; 
+  border: none;
+  padding: 0.5em 1em;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease; 
+
+}
+
+.sidebar-menu button:hover {
+  background: #555555; 
+}
+
+
+.sidebar-menu h2 {
+  color: #ffffff;
+  margin-bottom: 1em;
 }
 </style>

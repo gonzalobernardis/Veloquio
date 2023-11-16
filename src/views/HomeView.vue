@@ -11,6 +11,8 @@
     <Footer></Footer>
   </div>
 </template>
+
+
 <style>
 .main {
   font-family: Arial, sans-serif;
@@ -55,16 +57,16 @@ export default {
     this.fetchMovies();
   },
   computed: {
-    filteredMovies() {
-      return this.movies.filter(movie => {
-        return (
-          movie.title.includes(this.searchTerm) &&
-          (this.selectedGenre === '' || movie.genre_ids.includes((this.selectedGenre))) &&
-          (this.selectedAgeFilter === '' || this.checkAgeFilter(movie))
-        );
-      });
-    },
+  filteredMovies() {
+    return this.movies.filter(movie => {
+      return (
+        movie.title.includes(this.searchTerm) &&
+        (this.selectedGenre === '' || movie.genre_ids.includes(this.selectedGenre)) &&
+        (this.selectedAgeFilter === '' || this.checkAgeFilter(movie))
+      );
+    });
   },
+},
   methods: {
     updateMovies({ searchTerm }) {
       this.searchTerm = searchTerm;
