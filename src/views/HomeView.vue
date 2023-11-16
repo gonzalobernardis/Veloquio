@@ -1,10 +1,11 @@
 <template>
   <div>
     <Header></Header>
+    <SidebarMenu :genres="genres" @filter-updated="updateFilters" />
     <main class="main">
       <h1 class="tituloMain">Peliculas</h1>
       <div class="home">
-        <MovieList :filteredMovies="filteredMovies" />
+        <MovieList :movies="filteredMovies" />
       </div>
     </main>
     <Footer></Footer>
@@ -30,6 +31,7 @@
 import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
 import MovieList from '@/components/MovieList.vue';
+import SidebarMenu from '@/components/SidebarMenu.vue';
 
 export default {
   name: 'HomeView',
@@ -45,7 +47,8 @@ export default {
   components: {
     MovieList,
     Header,
-    Footer
+    Footer,
+    SidebarMenu
   },
   created() {
     this.fetchGenres();
@@ -75,21 +78,31 @@ export default {
     checkAgeFilter(movie) {
       return this.selectedAgeFilter === 'mayor' ? movie.adult : !movie.adult;
     },
-    async fetchMovies() {
+    fetchMovies() {
       const apiKey = '4ef343254726fa676e3b02cf1ed6493a';
       const response = fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`).then(response => {
         return response.json()
       }).then(resp => {
         this.movies = resp.results;
+        console.log(this.movies)
+      }).catch(error => {
+        return "no se pudieron obtener las peliculas" + error;
       });
     },
-    async fetchGenres() {
+    fetchGenres() {
       const apiKey = '4ef343254726fa676e3b02cf1ed6493a';
       const response = fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`).then(response => {
         return response.json();
       }).then(resp => {
         this.genres = resp.genres;
+      }).catch(error => {
+        return "los generos no se pudieron obtener" + error;
       });
+    },
+    updateFilters(filters) {
+      this.updateMovies(filters);
+      this.filterByGenre(filters);
+      this.filterByAge(filters);
     },
   },
 }

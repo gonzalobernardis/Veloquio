@@ -1,19 +1,22 @@
 <template>
-    <div class="card">
-        <img :src="urlImagenPelicula" alt="imagen De Pelicula">
-        <h2>{{ movie.title }}</h2>
-        <p>{{ movie.overview }}</p>
-    </div>
+    <router-link class="linkContainer" :to="'/movie/' + movie.id">
+        <div class="card">
+            <img :src="urlImagenPelicula" alt="imagen De Pelicula">
+            <h4>{{ movie.title }}</h4>
+            <p>{{ movie.release_date }}</p>
+        </div>
+    </router-link>
 </template>
 
 <style scoped>
-.movie-card {
+.card {
     margin: 1em;
     padding: 1em;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    max-width: 200px;
-    text-align: center;
+    width: 15vw;
+}
+.linkContainer {
+    text-decoration: none;
+    color: #ffffff;
 }
 </style>
 

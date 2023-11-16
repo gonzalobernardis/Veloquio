@@ -1,6 +1,6 @@
 <template>
     <div class="movieList">
-        <MovieCard v-for="movie in filteredMovies" :key="movie.id" :movie="movie" />
+        <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie" />
     </div>
 </template>
 
@@ -8,7 +8,8 @@
 .movieList {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    gap: 5em;
+    justify-content: space-between;
 }
 </style>
 
@@ -19,7 +20,7 @@ export default {
         MovieCard,
     },
     props: {
-        filteredMovies: {
+        movies: {
             type: Array,
             required: true,
         },
