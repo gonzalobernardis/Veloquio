@@ -34,6 +34,7 @@ import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
 import MovieList from '@/components/MovieList.vue';
 import SidebarMenu from '@/components/SidebarMenu.vue';
+import MovieCard from '@/components/MovieCard.vue';
 
 export default {
   name: 'HomeView',
@@ -50,7 +51,8 @@ export default {
     MovieList,
     Header,
     Footer,
-    SidebarMenu
+    SidebarMenu,
+    MovieCard
   },
   created() {
     this.fetchGenres();
@@ -82,7 +84,7 @@ export default {
     },
     fetchMovies() {
       const apiKey = '4ef343254726fa676e3b02cf1ed6493a';
-      const response = fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`).then(response => {
+      const response = fetch(`https://api.themoviedb.org/3/movie/popular?api_key=4ef343254726fa676e3b02cf1ed6493a`).then(response => {
         return response.json()
       }).then(resp => {
         this.movies = resp.results;
@@ -93,7 +95,7 @@ export default {
     },
     fetchGenres() {
       const apiKey = '4ef343254726fa676e3b02cf1ed6493a';
-      const response = fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`).then(response => {
+      const response = fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=4ef343254726fa676e3b02cf1ed6493a`).then(response => {
         return response.json();
       }).then(resp => {
         this.genres = resp.genres;

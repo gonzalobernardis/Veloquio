@@ -26,7 +26,7 @@
       </select>
     </div>
     <button @click="applyFilters">Aplicar Filtros</button>
-    <button @click="toggleSidebar">Mostrar/Ocultar</button>
+
   </div>
 </template>
 
@@ -54,9 +54,7 @@ export default {
         selectedAgeFilter: this.selectedAgeFilter,
       });
     },
-    toggleSidebar() {
-      this.showSidebar = !this.showSidebar;
-    },
+
   },
 };
 </script>

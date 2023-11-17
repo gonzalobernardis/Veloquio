@@ -1,7 +1,6 @@
-<!-- En MovieDetailsView.vue -->
 <template>
-  <div>
-    <h1>{{ movie.title }}</h1>
+<div v-if="movie">
+  <h1>{{ movie.title }}</h1>
     <img :src="getFullImagePath(movie.poster_path)" alt="imagen de pelicula">
     <p>{{ movie.overview }}</p>
     <p>Fecha de estreno: {{ movie.release_date }}</p>
@@ -31,7 +30,7 @@ export default {
       try {
         // Lógica para cargar detalles de la película usando this.id
         // Puedes usar una API o algún otro método para obtener los detalles
-        const response = await fetch(`https://api.themoviedb.org/3/movie/${this.id}?api_key=TU_API_KEY`);
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${this.id}?api_key=4ef343254726fa676e3b02cf1ed6493a`);
         const data = await response.json();
         this.movie = data;
       } catch (error) {
