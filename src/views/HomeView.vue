@@ -125,7 +125,7 @@ export default {
     },
     fetchMovies() {
       const apiKey = '4ef343254726fa676e3b02cf1ed6493a';
-      const response = fetch(`https://api.themoviedb.org/3/movie/popular?api_key=4ef343254726fa676e3b02cf1ed6493a`).then(response => {
+      const response = fetch(`https://api.themoviedb.org/3/movie/popular?api_key=` + apiKey).then(response => {
         return response.json()
       }).then(resp => {
         this.movies = resp.results;
@@ -136,7 +136,7 @@ export default {
     },
     fetchGenres() {
       const apiKey = '4ef343254726fa676e3b02cf1ed6493a';
-      const response = fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=4ef343254726fa676e3b02cf1ed6493a`).then(response => {
+      const response = fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=` + apiKey).then(response => {
         return response.json();
       }).then(resp => {
         this.genres = resp.genres;

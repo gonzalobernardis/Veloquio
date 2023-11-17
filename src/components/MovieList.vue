@@ -29,7 +29,6 @@
     },
     methods: {
       addToFavorites(movie) {
-
         this.$store.dispatch('addMovieToFavorites', movie);
       },
     },

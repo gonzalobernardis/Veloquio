@@ -44,7 +44,7 @@ footer{
     color: white;
     background: #301c41;
     background: #301c41;
-    margin-top: 1200px;
+    margin-top: 3vh;
     border-radius: 1em;
 }
 .volver{

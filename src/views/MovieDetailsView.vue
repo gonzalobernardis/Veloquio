@@ -12,7 +12,7 @@
 export default {
   props: {
     id: {
-      type: String,
+      type: Number,
       required: true,
     },
   },
@@ -22,7 +22,7 @@ export default {
     };
   },
   created() {
-    // Realiza la lógica para cargar los detalles de la película utilizando el ID
+
     this.loadMovieDetails();
   },
   methods: {
