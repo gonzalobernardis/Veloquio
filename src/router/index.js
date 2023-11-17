@@ -18,5 +18,5 @@ const router = new VueRouter({
 
 new Vue({
   render: (h) => h(App),
-  router, // Mueve esta línea aquí
+  router,
 }).$mount('#app')

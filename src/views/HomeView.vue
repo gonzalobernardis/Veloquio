@@ -12,7 +12,6 @@
   </div>
 </template>
 
-
 <style>
 * {
   margin: 0;
@@ -103,9 +102,7 @@ export default {
     filteredMovies() {
       return this.movies.filter(movie => {
         return (
-          movie.title.includes(this.searchTerm) &&
-          (this.selectedGenre === '' || movie.genre_ids.includes(this.selectedGenre)) &&
-          (this.selectedAgeFilter === '' || this.checkAgeFilter(movie))
+          movie.title.includes(this.searchTerm) || (this.selectedGenre === '' || movie.genre_ids.includes(this.selectedGenre)) || (this.selectedAgeFilter === '' || this.checkAgeFilter(movie))
         );
       });
     },

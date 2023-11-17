@@ -11,7 +11,7 @@
       <label>Género:</label>
       <select v-model="selectedGenre" @change="applyFilters">
         <option value="">Todos</option>
-        <option v-for="genre in genres" :key="genre.id" :value="genre.id">
+        <option v-for="genre in genres" :key="genre.id" :value="genre.name">
           {{ genre.name }}
         </option>
       </select>
@@ -54,7 +54,6 @@ export default {
         selectedAgeFilter: this.selectedAgeFilter,
       });
     },
-
   },
 };
 </script>
