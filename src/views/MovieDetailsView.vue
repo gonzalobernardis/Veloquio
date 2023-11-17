@@ -28,8 +28,6 @@ export default {
   methods: {
     async loadMovieDetails() {
       try {
-        // Lógica para cargar detalles de la película usando this.id
-        // Puedes usar una API o algún otro método para obtener los detalles
         const response = await fetch(`https://api.themoviedb.org/3/movie/${this.id}?api_key=4ef343254726fa676e3b02cf1ed6493a`);
         const data = await response.json();
         this.movie = data;
@@ -41,10 +39,6 @@ export default {
       return `https://image.tmdb.org/t/p/original${partialPath}`;
     },
     getGenres(genreIds) {
-      // Implementa la lógica para obtener los nombres de los géneros
-      // Puedes consultar la lista de géneros que obtuviste al cargar las películas
-      // y encontrar los nombres correspondientes.
-      // Por ahora, simplemente mostramos los IDs de los géneros.
       return genreIds.join(', ');
     },
   },

@@ -29,7 +29,7 @@
     },
     methods: {
       addToFavorites(movie) {
-        // Llama a la acción de Vuex para agregar a favoritos
+
         this.$store.dispatch('addMovieToFavorites', movie);
       },
     },
