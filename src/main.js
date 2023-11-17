@@ -7,15 +7,8 @@ import MovieDetailsView from './views/MovieDetailsView.vue';
 Vue.use(VueRouter);
 
 const routes = [
-  { 
-    path: '/',
-    component: HomeView 
-  },
-  { 
-    path: '/movie/:id', 
-    name: "movie", 
-    component: MovieDetailsView, 
-    props: true },
+  { path: '/', component: HomeView },
+  { path: '/movie/:id', name: 'movie-details', component: MovieDetailsView, props: true },
 ];
 
 const router = new VueRouter({

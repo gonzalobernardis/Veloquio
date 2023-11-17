@@ -1,12 +1,12 @@
 <template>
-    <router-link class="linkContainer" :to="'/movie/' + movie.id">
-        <div class="card">
-            <img :src="urlImagenPelicula" alt="imagen De Pelicula">
-            <h4>{{ movie.title }}</h4>
-            <p>{{ movie.release_date }}</p>
-        </div>
+    <router-link :to="{ name: 'movie-details', params: { id: movie.id } }" class="linkContainer">
+      <div class="card">
+        <img :src="urlImagenPelicula" alt="imagen De Pelicula">
+        <h4 class="movie-title">{{ movie.title }}</h4>
+        <p>{{ movie.release_date }}</p>
+      </div>
     </router-link>
-</template>
+  </template>
 
 <style scoped>
 .card {

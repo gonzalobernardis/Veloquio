@@ -14,17 +14,58 @@
 
 
 <style>
-.main {
-  font-family: Arial, sans-serif;
-  background-color: #1c0b2b;
+* {
   margin: 0;
-  padding: 1em;
+  padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #1c0b2b;
   color: #ffffff;
+}
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .tituloMain {
   text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #ffcc00;
+
+}
+
+.home {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.movie-title {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+  color: #ffcc00;
+
+}
+
+.movie-card {
+  margin: 1em;
+  padding: 1em;
+  width: 30%;
+  background-color: #2d132c;
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+
 }
 </style>
 
@@ -59,16 +100,16 @@ export default {
     this.fetchMovies();
   },
   computed: {
-  filteredMovies() {
-    return this.movies.filter(movie => {
-      return (
-        movie.title.includes(this.searchTerm) &&
-        (this.selectedGenre === '' || movie.genre_ids.includes(this.selectedGenre)) &&
-        (this.selectedAgeFilter === '' || this.checkAgeFilter(movie))
-      );
-    });
+    filteredMovies() {
+      return this.movies.filter(movie => {
+        return (
+          movie.title.includes(this.searchTerm) &&
+          (this.selectedGenre === '' || movie.genre_ids.includes(this.selectedGenre)) &&
+          (this.selectedAgeFilter === '' || this.checkAgeFilter(movie))
+        );
+      });
+    },
   },
-},
   methods: {
     updateMovies({ searchTerm }) {
       this.searchTerm = searchTerm;
