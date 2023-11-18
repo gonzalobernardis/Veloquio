@@ -102,7 +102,7 @@ export default {
     filteredMovies() {
       return this.movies.filter(movie => {
         return (
-          movie.title.includes(this.searchTerm) || (this.selectedGenre === '' || movie.genre_ids.includes(this.selectedGenre)) || (this.selectedAgeFilter === '' || this.checkAgeFilter(movie))
+          movie.title.includes(this.searchTerm.toLowerCase()) && (this.selectedGenre in movie.genre_ids) && (this.checkAgeFilter(movie))
         );
       });
     },
@@ -111,8 +111,8 @@ export default {
     updateMovies({ searchTerm }) {
       this.searchTerm = searchTerm;
     },
-    filterByGenre({ genreId }) {
-      this.selectedGenre = genreId;
+    filterByGenre() {
+      this.selectedGenre = this.genre_ids;
     },
     filterByAge({ ageFilter }) {
       this.selectedAgeFilter = ageFilter;
@@ -137,14 +137,20 @@ export default {
         return response.json();
       }).then(resp => {
         this.genres = resp.genres;
+        console.log(this.genres)
       }).catch(error => {
         return "los generos no se pudieron obtener" + error;
       });
     },
     updateFilters(filters) {
-      this.updateMovies(filters);
-      this.filterByGenre(filters);
-      this.filterByAge(filters);
+      this.$emit('filter-updated', {
+        searchTerm: this.searchTerm,
+        selectedGenre: this.selectedGenre,
+        selectedAgeFilter: this.selectedAgeFilter,
+      });
+      console.log(this.searchTerm)
+      console.log(this.selectedAgeFilter)
+      console.log(this.selectedGenre)
     },
   },
 }
