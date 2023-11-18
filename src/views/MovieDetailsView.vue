@@ -1,13 +1,14 @@
 <template>
-  <div  >
+  <div>
     <Header></Header>
     <div class="cardDetails">
-    <h1>{{ movie.title }}</h1>
-    <img class="imgDetails" :src="getFullImagePath(movie.poster_path)" alt="imagen de pelicula">
-    <p>{{ movie.overview }}</p>
-    <p>Fecha de estreno: {{ movie.release_date }}</p>
-    <p>Genero: {{ getGenres(movie.genre_ids) }}</p>
-  </div>
+      <h1>{{ movie.title }}</h1>
+      <img class="imgDetails" :src="getFullImagePath(movie.poster_path)" alt="imagen de pelicula">
+      <p>{{ movie.overview }}</p>
+      <p>Fecha de estreno: {{ movie.release_date }}</p>
+      <p>Genero: {{ getGenres(movie.genre_ids) }}</p>
+      <button @click="toggleFavorites" :disabled="isInFavorites">{{ isInFavorites ? 'Quitar de favoritos' : 'Agregar a favoritos' }}</button>    
+    </div>
     <Footer></Footer>
   </div>
 </template>
@@ -25,12 +26,14 @@ export default {
   data() {
     return {
       movie: null,
-      _id: ""
+      _id: "",
+      isInFavorites: false,
     };
   },
   created() {
     this._id = this.$route.params.id
     this.loadMovieDetails();
+    this.checkFavorites();
   },
   methods: {
     async loadMovieDetails() {
@@ -47,9 +50,30 @@ export default {
     },
     getGenres(genreIds) {
       // return genreIds.join(', ');
+    }, 
+    toggleFavorites() {
+      const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+      const index = favorites.findIndex(favorite => favorite.id === this._id);
+
+      if (index !== -1) {
+        // Si ya está en favoritos, quitar de favoritos
+        favorites.splice(index, 1);
+        this.isInFavorites = false;
+      } else {
+        // Si no está en favoritos, agregar a favoritos
+        favorites.push(this.movie);
+        this.isInFavorites = true;
+      }
+
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+    },
+    checkFavorites() {
+      const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+      this.isInFavorites = favorites.some(favorite => favorite.id === this._id);
     },
   },
-  components:{
+
+  components: {
     Header,
     Footer,
   }
@@ -87,7 +111,22 @@ body {
   align-items: center;
   padding-top: 3em;
 }
-.cardDetails p{
+
+.cardDetails p {
   padding-top: 3em;
+}
+
+button {
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 </style>
