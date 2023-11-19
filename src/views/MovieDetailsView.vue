@@ -2,7 +2,7 @@
   <div>
     <Header></Header>
     <div v-if="movie" class="cardDetails">
-      <h1>{{ movie.title }}</h1>
+      <h1 class="titulo">{{ movie.title }}</h1>
       <img class="imgDetails" :src="getFullImagePath(movie.poster_path)" alt="imagen de pelicula">
       <p>{{ movie.overview }}</p>
       <p>Fecha de estreno: {{ movie.release_date }}</p>
@@ -129,6 +129,10 @@ button:disabled {
 @media (max-width: 768px) {
   .imgDetails {
     max-width: 100%;
+  }
+  .titulo{
+    font-size: 10px;
+
   }
 }
 </style>

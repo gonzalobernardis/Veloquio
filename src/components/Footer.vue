@@ -9,7 +9,7 @@
         </div>
         <div>
           <h1 class="titulo">Contacto</h1>
-          <h2 class="contac">Teléfono: +54 911 8327 1350</h2>
+          <h2>Teléfono: +54 911 8327 1350</h2>
           <h2>Email: veloquio@gmail.com</h2>
         </div>
         <div>
@@ -49,12 +49,14 @@ body {
   border-radius: 1em;
   padding: 20px;
   margin-top: 3vh;
+  align-items: center;
 }
 
 .titulo {
   text-align: center;
   font-size: 2em;
   color: #ffcc00;
+  
 }
 
 a {
@@ -62,10 +64,6 @@ a {
   color: #ffffff;
 }
 
-.contac {
-  margin-top: 20px;
-  font-size: 1.2em;
-}
 
 .map {
   margin-top: 20px;
@@ -77,6 +75,10 @@ a {
   .caja {
     flex-direction: column;
     align-items: center;
+    text-align: center;
+  }
+  .ubi{
+    margin-top: 0.5em;
   }
 }
 </style>

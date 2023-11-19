@@ -19,7 +19,7 @@
 
     <div>
       <label>Edad:</label>
-      <select v-model="selectedAgeFilter" @change="applyFilters">
+      <select class="select1" v-model="selectedAgeFilter" @change="applyFilters">
         <option value="">Todos</option>
         <option value="mayor">Mayores de 18</option>
         <option value="menor">Menores de 18</option>
@@ -112,8 +112,20 @@ export default {
     margin-bottom: 1em; 
   }
   .sidebar-menu {
-
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center
+}
+input{
+  margin-left: 1em;
+}
+select{
+  margin-left: 2.9em;
+}
+.select1{
+  margin-left: 3.9em;
+  margin-bottom: 1em;
 }
 }
 </style>
