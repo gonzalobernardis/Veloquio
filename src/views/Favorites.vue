@@ -4,9 +4,9 @@
     <main class="main">
       <h1 class="tituloMain">Películas Favoritas</h1>
       <div class="favorites-container">
-        <div v-for="favorite in favorites" :key="favorite.id" class="favorite-card">
+        <div v-if="favorite" v-for="favorite in favorites" :key="favorite.id" class="favorite-card">
           <h2>{{ favorite.title }}</h2>
-          <img :src="getFullImagePath(favorite.poster_path)" alt="imagen de pelicula">
+          <img class="fav-img" :src="getFullImagePath(favorite.poster_path)" alt="imagen de pelicula">
           <p>{{ favorite.overview }}</p>
           <button @click="removeFromFavorites(favorite.id)">Quitar de favoritos</button>
         </div>
@@ -71,7 +71,9 @@ export default {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
-
+.fav-img{
+  width: 50px;
+}
 .favorite-card:hover {
   transform: scale(1.05);
 }

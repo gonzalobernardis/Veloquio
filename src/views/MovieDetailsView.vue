@@ -1,13 +1,16 @@
 <template>
   <div>
     <Header></Header>
-    <div class="cardDetails">
+    <div v-if="movie" class="cardDetails">
       <h1>{{ movie.title }}</h1>
       <img class="imgDetails" :src="getFullImagePath(movie.poster_path)" alt="imagen de pelicula">
       <p>{{ movie.overview }}</p>
       <p>Fecha de estreno: {{ movie.release_date }}</p>
       <p>Genero: {{ getGenres(movie.genre_ids) }}</p>
       <button @click="toggleFavorites" :disabled="isInFavorites">{{ isInFavorites ? 'Quitar de favoritos' : 'Agregar a favoritos' }}</button>    
+    </div>
+    <div v-else>
+      <h2>Cargando....</h2>
     </div>
     <Footer></Footer>
   </div>
