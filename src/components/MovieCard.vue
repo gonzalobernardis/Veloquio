@@ -10,13 +10,21 @@
 
 <style scoped>
 .card {
-    margin: 1em;
-    padding: 1em;
-    width: 15vw;
+  margin: 1em;
+  padding: 1em;
+  width: 15vw;
 }
+
 .linkContainer {
-    text-decoration: none;
-    color: #ffffff;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%; 
+  }
 }
 </style>
 

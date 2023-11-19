@@ -139,7 +139,7 @@ body {
 }
 
 .movie-card {
-  flex: 0 0 calc(30% - 20px); /* Ajustar el ancho de las tarjetas según las necesidades */
+  flex: 0 0 calc(30% - 20px); 
   margin-bottom: 20px;
   background-color: #2d132c;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -149,4 +149,8 @@ body {
 .movie-card:hover {
   transform: scale(1.05);
 }
+@media (max-width: 768px) {
+  .movie-card {
+    flex: 0 0 calc(48% - 20px); 
+  }}
 </style>

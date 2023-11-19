@@ -27,45 +27,56 @@
   }
   </script>
   
-  <style scoped>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: #1c0b2b;
-    color: #ffffff;
-  }
-  
+ 
+<style scoped>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #1c0b2b;
+  color: #ffffff;
+}
+
+.caja {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background: #301c41;
+  border-radius: 1em;
+  padding: 20px;
+  margin-top: 3vh;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 2em;
+  color: #ffcc00;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.contac {
+  margin-top: 20px;
+  font-size: 1.2em;
+}
+
+.map {
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* Consultas de medios para hacerlo responsive */
+@media (max-width: 768px) {
   .caja {
-    display: flex;
-    justify-content: space-around;
-    background: #301c41;
-    border-radius: 1em;
-    padding: 20px;
-    margin-top: 3vh;
+    flex-direction: column;
+    align-items: center;
   }
-  
-  .titulo {
-    text-align: center;
-    font-size: 2em;
-    color: #ffcc00;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #ffffff;
-  }
-  
-  .contac {
-    margin-top: 20px;
-    font-size: 1.2em;
-  }
-  
-  .map {
-    margin-top: 20px;
-  }
-  </style>
+}
+</style>

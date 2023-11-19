@@ -13,6 +13,14 @@
     gap: 5em;
     justify-content: space-between;
   }
+  
+ 
+  @media (max-width: 768px) {
+    .movieList {
+      gap: 2em; 
+      justify-content: center; 
+    }
+  }
   </style>
   
   <script>

@@ -63,7 +63,7 @@ export default {
 
 <style scoped>
 .sidebar-menu {
-  background: #1c0b2b; 
+  background: #361751; 
   padding: 1em;
   color: #ffffff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
@@ -71,8 +71,17 @@ export default {
   display: flex;
   align-items: center; 
   justify-content: space-between; 
+  flex-direction: row;
 }
-
+.filter-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; 
+}
+.filter-item {
+  flex: 1; 
+  margin-right: 1em; 
+}
 .sidebar-menu button {
   background: #363636; 
   color: #ffffff; 
@@ -92,5 +101,19 @@ export default {
 .sidebar-menu h2 {
   color: #ffffff;
   margin-bottom: 1em;
+}
+@media (max-width: 768px) {
+  .filter-row {
+    flex-direction: column; 
+  }
+
+  .filter-item {
+    margin-right: 0; 
+    margin-bottom: 1em; 
+  }
+  .sidebar-menu {
+
+  flex-direction: column;
+}
 }
 </style>

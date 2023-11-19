@@ -7,7 +7,7 @@
       <p>{{ movie.overview }}</p>
       <p>Fecha de estreno: {{ movie.release_date }}</p>
       <p>Genero: {{ getGenres(movie.genre_ids) }}</p>
-      <button @click="toggleFavorites" :disabled="isInFavorites">{{ isInFavorites ? 'Quitar de favoritos' : 'Agregar a favoritos' }}</button>    
+      <button @click="toggleFavorites" :disabled="isInFavorites">{{ isInFavorites ? 'Quitar de favoritos' : 'Agregar a favoritos' }}</button>
     </div>
     <div v-else>
       <h2>Cargando....</h2>
@@ -53,17 +53,15 @@ export default {
     },
     getGenres(genreIds) {
       // return genreIds.join(', ');
-    }, 
+    },
     toggleFavorites() {
       const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
       const index = favorites.findIndex(favorite => favorite.id === this._id);
 
       if (index !== -1) {
-        // Si ya está en favoritos, quitar de favoritos
         favorites.splice(index, 1);
         this.isInFavorites = false;
       } else {
-        // Si no está en favoritos, agregar a favoritos
         favorites.push(this.movie);
         this.isInFavorites = true;
       }
@@ -82,7 +80,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 * {
   margin: 0;
   padding: 0;
@@ -95,12 +93,6 @@ body {
   color: #ffffff;
 }
 
-.main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
 .cardDetails {
   display: flex;
   flex-direction: column;
@@ -109,14 +101,14 @@ body {
 }
 
 .imgDetails {
-  width: 30vw;
+  width: 100%;
   height: auto;
-  align-items: center;
-  padding-top: 3em;
+  max-width: 30vw;
+  margin-top: 1em;
 }
 
 .cardDetails p {
-  padding-top: 3em;
+  padding-top: 1em;
 }
 
 button {
@@ -131,5 +123,12 @@ button {
 button:disabled {
   cursor: not-allowed;
   opacity: 0.5;
+}
+
+
+@media (max-width: 768px) {
+  .imgDetails {
+    max-width: 100%;
+  }
 }
 </style>

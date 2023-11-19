@@ -72,7 +72,8 @@ export default {
   transition: transform 0.3s ease;
 }
 .fav-img{
-  width: 50px;
+  width: 100%;
+  height: auto;
 }
 .favorite-card:hover {
   transform: scale(1.05);
@@ -90,5 +91,10 @@ button {
 button:disabled {
   cursor: not-allowed;
   opacity: 0.5;
+}
+@media (max-width: 768px) {
+  .favorite-card {
+    width: 100%; 
+  }
 }
 </style>

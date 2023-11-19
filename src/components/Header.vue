@@ -19,27 +19,41 @@ export default {
 
 
 <style scoped>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    .links-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        background-color: #413b6b;
-        color: #ffffff;
-        height: 10vh;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    }
-    .link {
-        text-decoration: none;
-        color: #ffffff;
-    }
-    .link:hover {
-        text-decoration: underline #ffffff;
-        text-underline-offset: 0.5em;
-    }
+.links-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #413b6b;
+  color: #ffffff;
+  height: 10vh;
+}
 
+.link {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.link:hover {
+  text-decoration: underline #ffffff;
+  text-underline-offset: 0.5em;
+}
+
+
+@media (max-width: 768px) {
+  .links-container {
+    flex-direction: column;
+    height: auto;
+    padding: 1em;
+  }
+
+  h1 {
+    margin-bottom: 1em; 
+  }
+}
 </style>
